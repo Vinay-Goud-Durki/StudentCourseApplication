@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Details</title>
+    <link rel="stylesheet" href="./CSS/admindetails.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-left">
+        <h1>Admin Dashboard</h1>
+        <nav>
+          <ul class="left-nav">
+            <li>
+              <a href="index.html"><i class="fas fa-home" title="home"></i></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header-center">
+        <h1 class="admin-welcome">Welcome, <span id="adminName"></span></h1>
+      </div>
+
+      <div class="profile-dropdown">
+        <img
+          src="./images/149071.png"
+          alt="Profile"
+          class="profile-icon"
+          id="profileIcon"
+        />
+
+        <div class="dropdown-menu" id="dropdownMenu">
+          <button onclick="updateAdmin()">Update Details</button>
+          <button onclick="document.getElementById('uploadInput').click()">
+            Update Image
+          </button>
+          <button onclick="deleteAdminImage()">Delete Image</button>
+          <button onclick="fetchImage()">View Image</button>
+          <button onclick="getAllStudents()">👥 Get All Students</button>
+          <button onclick="findAllCourses()">📚 Find All Courses</button>
+          <button onclick="deleteAccount()">🗑️ Delete Account</button>
+
+          <button onclick="logout()" class="logout-button">
+            <svg
+              class="logout-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1m0-9V5m-6 14a2 2 0 01-2-2V7a2 2 0 012-2h3"
+              />
+            </svg>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="adminDetails" class="card"></section>
+
+      <div id="imageContainer"></div>
+
+      <div class="button-group">
+        <button onclick="updateAdmin()">✏️ Update Admin</button>
+        <button onclick="deleteAccount()" class="deleteButton">
+          🗑️ Delete Account
+        </button>
+        <button onclick="getAllStudents()">👥 Get All Students</button>
+        <button onclick="findAllCourses()">📚 Find All Courses</button>
+        <button onclick="addACourse()">Add a New Course</button>
+      </div>
+
+      <div id="responseContainer"></div>
+    </main>
+
+    <!-- Image Popup Modal -->
+    <!-- <div id="popupModal" class="modal hidden"> -->
+    <div id="popupModal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="popupImage" src="" alt="Admin" />
+        <div class="popup-buttons">
+          <input
+            type="file"
+            id="uploadInput"
+            onchange="uploadAdminImage(event)"
+            hidden
+          />
+          <button onclick="document.getElementById('uploadInput').click()">
+            Upload
+          </button>
+          <button onclick="deleteAdminImage()" class="deleteButton">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="popupModal1" class="modal-overlay hidden">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal1()"><b> &times; </b></span>
+        <img id="popupImage1" src="" alt="Admin" />
+      </div>
+    </div>
+
+    <h2 id="displaynameofstudents"></h2>
+    <div id="studentsContainer"></div>
+
+    <h2 id="displaycoursesname"></h2>
+    <div id="courseContainer"></div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal-overlay hidden">
+      <div class="modal-box">
+        <p id="confirmMessage"></p>
+        <div class="modal-buttons">
+          <button id="confirmBtn">Yes, Confirm</button>
+          <button id="cancelBtn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Message Modal -->
+    <div id="messageModal" class="modal-overlay hidden">
+      <div class="modal-box">
+        <p id="messageText"></p>
+        <div class="modal-buttons" style="justify-content: center">
+          <button id="messageCloseBtn">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Update Course Modal -->
+    <div id="updateCourseModal" class="modal-overlay hidden">
+      <div class="modal-box">
+        <h2>Update Course</h2>
+        <form id="updateCourseForm">
+          <input type="hidden" id="updateCid" />
+          <label for="updateName">Name:</label>
+          <input type="text" id="updateName" required />
+          <br />
+          <label for="updateCost">Cost:</label>
+          <input type="number" id="updateCost" required />
+          <br />
+          <label for="updateDuration">Duration:</label>
+          <input type="text" id="updateDuration" required />
+
+          <div class="modal-buttons">
+            <button type="submit">Update</button>
+            <button type="button" onclick="closeUpdateModal()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Add Course Modal -->
+<div id="addCourseModal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <h2>Add a New Course</h2>
+    <form id="addCourseForm">
+      <label for="newName">Name:</label>
+      <input type="text" id="newName" required />
+      <br />
+      <label for="newCost">Cost:</label>
+      <input type="number" id="newCost" required />
+      <br />
+      <label for="newDuration">Duration:</label>
+      <input type="text" id="newDuration" required placeholder="e.g., 23-12-2027" />
+      <div class="modal-buttons">
+        <button type="submit">Add</button>
+        <button type="button" onclick="closeAddCourseModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+  </body>
+  <script src="./JavaScript/admindetails.js"></script>
+</html>

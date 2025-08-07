@@ -1,0 +1,492 @@
+/* Base Reset and Body Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f7f7f7;
+  color: #2c3e50;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+/* Header Styling */
+header {
+  padding: 12px 24px;
+  background-color: #2c3e50;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50px;
+  z-index: 2000;
+}
+
+/* Navigation Lists */
+.left-nav,
+#action-btns {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Left Nav Items */
+.left-nav li h1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  user-select: none;
+}
+
+.left-nav li a,
+.left-nav i.fas {
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.left-nav li a:hover,
+.left-nav i.fas:hover {
+  color: #3498db;
+}
+
+/* Profile Icon */
+header img.profile-icon,
+.profile-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+.profile-icon:hover {
+  box-shadow: 0 0 8px 2px #3498dbaa;
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  min-width: 180px;
+  display: none;
+  flex-direction: column;
+  z-index: 1500;
+  overflow: hidden;
+}
+
+/* Show dropdown on parent hover/focus */
+.profile-dropdown.active,
+.profile-dropdown:hover {
+  display: flex;
+}
+
+/* Dropdown buttons */
+.dropdown-menu button,
+.profile-dropdown button {
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 15px;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  user-select: none;
+}
+
+.dropdown-menu button:hover,
+.profile-dropdown button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Container for main content */
+.container {
+  max-width: 900px;
+  margin: 30px auto 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Sections - details, courses, actions */
+.details,
+.courses,
+.actions {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgb(187 197 205 / 27%);
+  padding: 30px;
+  flex: 1 1 320px;
+  min-width: 300px;
+  margin-bottom: 20px;
+  color: #34495e;
+}
+
+/* Section headers */
+.details h2,
+.courses h2 {
+  font-size: 1.3rem;
+  color: #3498db;
+  margin-bottom: 22px;
+  font-weight: 700;
+}
+
+/* Paragraph text inside details */
+.details p {
+  font-size: 1rem;
+  margin: 10px 0;
+  user-select: text;
+}
+
+/* Image Section */
+.image-section img {
+  width: 160px;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 12px;
+  background-color: #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.image-section img:hover {
+  width: 200px;
+  height: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(52, 152, 219, 0.25);
+}
+
+/* Actions Buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.actions button {
+  background-color: #3498db;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  min-width: 130px;
+  flex-grow: 1;
+  max-width: 180px;
+}
+
+.actions button:hover,
+.actions button:focus {
+  background-color: #2980b9;
+  transform: translateY(-2px) scale(1.03);
+  outline: none;
+}
+
+/* Button margin fix */
+.actions button:not(:last-child) {
+  margin-right: 8px;
+}
+
+/* Inputs and buttons styling */
+button,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+button:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Modal Overlay */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Show modal */
+.modal.show {
+  display: flex;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+  padding: 25px 30px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  position: relative;
+  text-align: center;
+  animation: modalFadeIn 0.3s ease forwards;
+}
+
+/* Modal Fade-in animation */
+@keyframes modalFadeIn {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Modal Image */
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+/* Modal action buttons */
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.modal-actions button {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  min-width: 110px;
+}
+
+.modal-actions button:hover,
+.modal-actions button:focus {
+  background-color: #2c387e;
+  outline: none;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #555;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.25s ease;
+}
+
+.close:hover,
+.close:focus {
+  color: #d9534f;
+  outline: none;
+}
+
+/* Confirmation Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  padding: 15px;
+}
+
+/* Show confirmation modal */
+.modal-overlay.show {
+  display: flex;
+}
+
+/* Modal box */
+.modal-box {
+  background-color: white;
+  padding: 22px 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  user-select: none;
+}
+
+/* Modal buttons container */
+.modal-buttons {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Modal buttons */
+.modal-buttons button {
+  flex: 1;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.modal-buttons button:hover,
+.modal-buttons button:focus {
+  background-color: #0056b3;
+  outline: none;
+}
+
+/* Confirm and cancel overrides */
+#confirmBtn {
+  background-color: #d9534f;
+}
+
+#confirmBtn:hover,
+#confirmBtn:focus {
+  background-color: #b83b3b;
+}
+
+#cancelBtn {
+  background-color: #6c757d;
+}
+
+#cancelBtn:hover,
+#cancelBtn:focus {
+  background-color: #585e62;
+}
+
+/* Hidden helper class */
+.hidden {
+  display: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 680px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .details,
+  .courses,
+  .actions {
+    flex-basis: 100%;
+    min-width: auto;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .actions button {
+    max-width: 100%;
+    min-width: auto;
+  }
+
+  .modal-content,
+  .modal-box {
+    max-width: 90%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    flex-direction: column;
+    gap: 8px;
+    min-height: auto;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .left-nav,
+  #action-btns {
+    gap: 10px;
+  }
+
+  .left-nav li h1 {
+    font-size: 16px;
+  }
+}
+
+.modal {
+  display: none; /* use flex, but hidden by default */
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw; height: 100vh;
+  z-index: 1000;
+  background: rgba(0,0,0,0.5);
+
+  /* Center content using flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  padding: 25px 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  text-align: center;
+  position: relative;
+}

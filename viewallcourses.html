@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View All Courses</title>
+  <link rel="stylesheet" href="./CSS/viewcourses.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-left">
+        <li><a href="studentdetails.html"><i class="fas fa-arrow-left"></i> Back</a></li>
+      </ul>
+      <ul class="nav-right">
+        <li><span id="studentName"></span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="student-info">
+      <h2>Student Details</h2>
+      <p><strong>ID:</strong> <span id="studentId"></span></p>
+      <p><strong>Email:</strong> <span id="studentEmail"></span></p>
+      <p><strong>Mobile:</strong> <span id="studentMobile"></span></p>
+      <p><strong>Address:</strong> <span id="studentAddress"></span></p>
+    </section>
+
+    <section class="courses-section">
+      <h2>Subscribed Courses</h2>
+      <div id="subscribedCourses"></div>
+      <button id="removeSelectedBtn">Remove Selected</button>
+    </section>
+
+    <section class="all-courses">
+      <h2>All Courses</h2>
+      <input type="text" id="searchBox" placeholder="Search courses..." />
+      <div id="allCourses"></div>
+      <button id="addSelectedBtn">Add Selected</button>
+    </section>
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden"></div>
+  
+
+
+  <script src="./JavaScript/viewcourses.js"></script>
+</body>
+</html>

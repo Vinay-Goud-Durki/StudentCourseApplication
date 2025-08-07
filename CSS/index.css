@@ -1,0 +1,312 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+ 
+  display: flex;
+  justify-content: space-between; /* Push content to left and right */
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+#welcome-msg {
+  font-size: 2rem;
+}
+
+#action-btns {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  
+}
+
+#action-btns li {
+  display: flex;
+  align-items: center;
+}
+
+.search-container input {
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.user-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Responsive nav */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #action-btns {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+}
+
+/* Main content */
+main {
+  position: relative;
+  padding: 2rem;
+  color: white;
+  min-height: 70vh;
+  background-image: url('../images/mainbackground.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Overlay for better text contrast */
+main::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  z-index: -1;
+}
+
+/* Headings and paragraphs in main */
+main h1, main p {
+  /* border: 2px solid; */
+  max-width: 700px;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+main h1{
+  font-size: 2.5rem;
+}
+
+main p{
+  font-size: 1.5rem;
+  
+}
+
+
+/* Responsive text sizes for main */
+@media (max-width: 768px) {
+  main h1 {
+    font-size: 3rem;
+  }
+  main p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 1rem;
+  }
+  main h1 {
+    font-size: 1.5rem;
+  }
+  main p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Article and section styling */
+article, section {
+
+  padding: 1rem;
+  margin-bottom: 10rem;
+} 
+
+
+article {
+  position: absolute;
+  top: -30px; /* moving upwards */
+}
+
+
+/* Figure and images */
+figure {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  padding: 1rem 0;
+}
+
+figure img {
+  width: 300px;
+  height: 300px;
+  border-radius: 1.2vw;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+figure img:hover {
+  transform: scale(1.05);
+}
+
+
+/* Footer */
+footer {
+
+  padding: 1rem;
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center child divs horizontally */
+  height: min-content;
+}
+
+#footer-1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center contents inside footer-1 */
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 1rem; /* Space below footer-1 */
+}
+
+#footer-1 > div {
+ 
+  flex: 1 1 200px;
+  min-width: 200px;
+  text-align: center; /* Center text inside each section */
+}
+
+#footer-2 {
+  text-align: center;
+}
+
+#footer-2 img {
+  width: 25px;
+  height: 25px;
+  margin: 0 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav {
+    align-items: flex-start;
+  }
+
+  #action-btns {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #footer-1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  figure {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  h1, p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .search-container input {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  #action-btns {
+    align-items: center;
+  }
+}
+
+
+
+/* Common styles */
+.btn {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+/* Signup button (green) */
+.signup {
+  background-color: #28a745;
+}
+.signup:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Signin button (teal) */
+.signin {
+  background-color: #17a2b8;
+}
+.signin:hover {
+  background-color: #117a8b;
+  transform: scale(1.05);
+}
+
+/* Admin button (gold/yellow) */
+.admin {
+  background-color: #ffc107;
+  color: black;
+}
+.admin:hover {
+  background-color: #e0a800;
+  transform: scale(1.05);
+}
+
+/* Disabled state */
+.btn:disabled {
+  background-color: #cccccc;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a button {
+  text-decoration: none;
+}
+

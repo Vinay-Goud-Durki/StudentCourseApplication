@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Details</title>
+    <link rel="stylesheet" href="./CSS/studentdetails.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="left-nav">
+          <li>
+            <a href="index.html"><i class="fas fa-home" title="home"></i></a>
+          </li>
+          <li>
+            <h1>Welcome, <span id="studentName"></span></h1>
+          </li>
+        </ul>
+      </nav>
+      <div class="profile-dropdown">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+          alt="Profile"
+          class="profile-icon"
+          id="profileIcon"
+        />
+
+        <div class="dropdown-menu" id="dropdownMenu">
+          <button onclick="updateStudent()">Update Details</button>
+          <button onclick="triggerUpload()">update Image</button>
+          <button onclick="deleteImage()">Delete Image</button>
+          <button onclick="fetchImage()">View Image</button>
+          <button onclick="deleteAccount()">Delete Account</button>
+          <button onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="details">
+        <h2>Student Details</h2>
+        <p><strong>ID:</strong> <span id="studentId"></span></p>
+        <p><strong>Email:</strong> <span id="studentEmail"></span></p>
+        <p><strong>Mobile:</strong> <span id="studentMobile"></span></p>
+        <p><strong>Address:</strong> <span id="studentAddress"></span></p>
+
+        <div class="image-section">
+          <img
+            id="studentImage"
+            src=""
+            alt="Student Image"
+            onclick="fetchImage()"
+          />
+        </div>
+      </section>
+      <section class="courses">
+        <h2>Enrolled Courses</h2>
+        <ul id="courseList"></ul>
+      </section>
+
+      <section class="actions">
+        <button onclick="updateStudent()">Update Details</button>
+        <button onclick="updateImage()">Update Image</button>
+        <button onclick="fetchImage()">Fetch Image</button>
+        <button onclick="viewAllCourses()">View All Courses</button>
+        <button onclick="deleteAccount()">Delete Account</button>
+      </section>
+    </main>
+    <!-- Image Modal Popup -->
+    <div id="imageModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h3>Student Profile Image</h3>
+        <img id="popupImage" src="" alt="Student Image" />
+        <div class="modal-actions">
+          <button onclick="triggerUpload()">Upload New</button>
+          <button onclick="deleteImage()">Delete</button>
+        </div>
+      </div>
+    </div>
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal-overlay hidden">
+      <div class="modal-box">
+        <p id="confirmMessage"></p>
+        <div class="modal-buttons">
+          <button id="confirmBtn">Yes, Confirm</button>
+          <button id="cancelBtn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Message Modal -->
+    <div id="messageModal" class="modal-overlay hidden">
+      <div class="modal-box">
+        <p id="messageText"></p>
+        <div class="modal-buttons" style="justify-content: center">
+          <button id="messageCloseBtn">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./JavaScript/studentdetails.js"></script>
+  </body>
+</html>

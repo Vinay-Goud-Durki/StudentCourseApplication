@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/signupcopy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+</head>
+<body>
+    <header>
+    <nav>
+  <ul class="left-nav">
+    <li class="home-icon">
+      <a href="index.html"><i class="fas fa-home"></i></a>
+    </li>
+    <li><h1 id="welcome-msg">Student-Course Application Admin-SignUp</h1></li>
+  </ul>
+            <ul id="action-btns">
+                
+                <li class="search-container">
+                    <input type="text" placeholder="Search...">
+                </li>
+                <li><a href="signin.html"><button class="btn signin"><i class="fas fa-sign-in-alt"></i>Student SignIn</button></a></li>
+                <li><a href="adminsigin.html"><button class="btn admin"><i class="fas fa-user-shield"></i>Admin SignIn</button></a></li>
+            </ul>
+    </nav>
+   </header>
+
+   <form action="" id="signupForm" >
+            <label for="fname">First Name</label>
+            <input type="text" name="fname" id="fname" placeholder="Enter First Name">
+            <br>
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname" id="lname" placeholder="Enter last Name">
+            <br>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Enter Email">
+            <br>
+            <label for="mobileNo">Mobile Number</label>
+            <!-- <input type="number" name="mobileNo" id="mobileNo"> -->
+             <input type="number" id="mobileNo" name="mobileNo" maxlength="10" pattern="[6-9]{1}[0-9]{9}" required  placeholder="Enter Mobile Number"/>
+            <br>
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address" placeholder="Enter Address">
+            <br>
+           <div class="password-container">
+            <label for="password">Password</label>
+                <div class="password-wrapper">
+                         <input type="password" name="password" id="password" placeholder="Enter Password">
+                         <!-- <i class="fas fa-eye" id="togglePassword"></i> -->
+                          <i class="fa-solid fa-eye" id="togglePassword"></i>
+                         </div>
+            </div>
+
+            <!-- Confirm Password Field -->
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="password-wrapper">
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Re-type password">
+                    <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
+            </div>
+            
+              <section class="passcrrtornotsec">
+                <p id="validationnotcrrt"></p>
+                <p style="color: red;" id="passcrrtornot"></p>
+               <button id='reset' onclick='resetpage()' type='button'>ok</button>
+               </section>
+            <button type="submit">SignUp</button>
+
+   </form>
+   
+   <div id="messageModal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <p id="messageText"></p>
+    <div class="modal-buttons" style="justify-content: center;">
+      <button id="messageCloseBtn">OK</button>
+    </div>
+  </div>
+</div>
+
+</body>
+
+<script src="./JavaScript/adminSignUp.js"></script>
+
+</html>
